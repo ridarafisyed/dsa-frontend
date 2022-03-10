@@ -1,0 +1,18 @@
+/** @format */
+
+.container {
+  background-image: url("../../asserts//Asset\ 4.png");
+  /* background-repeat: no-repeat; */
+  background-size: 700px;
+}
+.left-side {
+  margin: auto;
+  padding-left: 3rem;
+}
+.right-side {
+  padding: 2.5rem;
+  background-image: url("../../asserts/Asset\ 3.png");
+  background-repeat: no-repeat;
+  background-size: 78%;
+  background-position: center;
+}

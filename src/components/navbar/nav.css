@@ -1,0 +1,21 @@
+/** @format */
+
+.navbar {
+  background: white;
+}
+nav {
+}
+nav li {
+  margin-inline: 0.5rem;
+}
+nav li a {
+  border-bottom: solid 0.2rem #fff;
+  font-size: 1rem;
+}
+.active {
+  border-bottom: solid #d37aaf;
+  font-size: 1.4rem;
+}
+nav li a:hover {
+  border-bottom: solid pink;
+}
