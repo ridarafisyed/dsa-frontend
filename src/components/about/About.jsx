@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { Fragment } from "react";
-import { Grid, CardMedia, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 
 const About = () => {
   return (

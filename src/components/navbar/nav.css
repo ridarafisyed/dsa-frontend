@@ -5,17 +5,25 @@
 }
 nav {
 }
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  align-content: center;
+}
 nav li {
   margin-inline: 0.5rem;
+  display: inline;
 }
-nav li a {
+.nav-link {
   border-bottom: solid 0.2rem #fff;
+  text-decoration: none;
   font-size: 1rem;
 }
 .active {
   border-bottom: solid #d37aaf;
   font-size: 1.4rem;
 }
-nav li a:hover {
+.nav-link:hover {
   border-bottom: solid pink;
 }

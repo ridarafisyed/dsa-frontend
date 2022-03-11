@@ -1,7 +1,6 @@
 /** @format */
 
-import React from "react";
-import { createTheme, ThemeProvider } from "@mui/material";
+import { createTheme } from "@mui/material";
 
 export const theme = createTheme({
   palette: {
