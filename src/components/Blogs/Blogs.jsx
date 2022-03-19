@@ -21,7 +21,9 @@ const Blogs = () => {
           variant="h3"
           align="center"
           className="Title"
+          color="gray"
           mt={5}
+          sx={{ textTransform: "uppercase", fontWeight: 700 }}
         >
           Latest Blogs
         </Typography>

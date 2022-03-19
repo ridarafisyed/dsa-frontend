@@ -3,8 +3,8 @@
 import { Container } from "@mui/material";
 import React, { Fragment } from "react";
 import { ScopedCssBaseline } from "@mui/material";
-import Footer from "../components/footer/Footer";
-import Navbar from "../components/navbar/Navbar";
+import Footer from "../components/Footer/Footer";
+import Navbar from "../components/Navbar/Navbar";
 import "./theme.css";
 
 // import { ThemeProvider } from "@mui/material/styles";

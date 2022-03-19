@@ -1,0 +1,40 @@
+/** @format */
+.feedback-card {
+  max-width: 30rem;
+  margin: auto;
+  border-radius: "50px";
+  border: 2px solid #ddd;
+  box-shadow: 5px 5px #ddd;
+  padding: 1rem;
+}
+.card-message {
+  color: #333;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.card-message i {
+  margin-right: 0.5rem;
+  color: #ffc000;
+  transform: scaleX(-1);
+}
+.card-profile img {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  object-position: 20% 10%;
+  border-radius: 50%;
+  margin: 1rem;
+}
+.card-name {
+  color: #999;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.card-stars {
+  color: #ffc000;
+  /* padding: 1rem; */
+}
+.slider {
+  /* background: chocolate; */
+  padding: 3rem;
+}
