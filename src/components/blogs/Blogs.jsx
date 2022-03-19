@@ -42,7 +42,7 @@ const Blogs = () => {
                   variant="h4"
                   align="center"
                   className="cardTitle"
-                  mt={6}
+                  mt={10}
                   mb={2}
                 >
                   Title of the Post
@@ -77,7 +77,7 @@ const Blogs = () => {
                   variant="h4"
                   align="center"
                   className="cardTitle"
-                  mt={6}
+                  mt={10}
                   mb={2}
                 >
                   Title of the Post
@@ -112,7 +112,7 @@ const Blogs = () => {
                   variant="h4"
                   align="center"
                   className="cardTitle"
-                  mt={6}
+                  mt={10}
                   mb={2}
                 >
                   Title of the Post
@@ -147,7 +147,7 @@ const Blogs = () => {
                   variant="h4"
                   align="center"
                   className="cardTitle"
-                  mt={6}
+                  mt={10}
                   mb={2}
                 >
                   Title of the Post
@@ -182,7 +182,7 @@ const Blogs = () => {
                   variant="h4"
                   align="center"
                   className="cardTitle"
-                  mt={6}
+                  mt={10}
                   mb={2}
                 >
                   Title of the Post
@@ -217,7 +217,7 @@ const Blogs = () => {
                   variant="h4"
                   align="center"
                   className="cardTitle"
-                  mt={6}
+                  mt={10}
                   mb={2}
                 >
                   Title of the Post
