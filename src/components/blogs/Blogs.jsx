@@ -39,7 +39,7 @@ const Blogs = () => {
               <CardContent className="cardContent">
                 <Typography
                   component="h3"
-                  variant="h4"
+                  variant="h5"
                   align="center"
                   className="cardTitle"
                   mt={10}
@@ -74,7 +74,7 @@ const Blogs = () => {
               <CardContent className="cardContent">
                 <Typography
                   component="h3"
-                  variant="h4"
+                  variant="h5"
                   align="center"
                   className="cardTitle"
                   mt={10}
@@ -109,7 +109,7 @@ const Blogs = () => {
               <CardContent className="cardContent">
                 <Typography
                   component="h3"
-                  variant="h4"
+                  variant="h5"
                   align="center"
                   className="cardTitle"
                   mt={10}
@@ -144,7 +144,7 @@ const Blogs = () => {
               <CardContent className="cardContent">
                 <Typography
                   component="h3"
-                  variant="h4"
+                  variant="h5"
                   align="center"
                   className="cardTitle"
                   mt={10}
@@ -179,7 +179,7 @@ const Blogs = () => {
               <CardContent className="cardContent">
                 <Typography
                   component="h3"
-                  variant="h4"
+                  variant="h5"
                   align="center"
                   className="cardTitle"
                   mt={10}
@@ -214,7 +214,7 @@ const Blogs = () => {
               <CardContent className="cardContent">
                 <Typography
                   component="h3"
-                  variant="h4"
+                  variant="h5"
                   align="center"
                   className="cardTitle"
                   mt={10}

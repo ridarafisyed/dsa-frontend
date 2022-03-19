@@ -12,20 +12,45 @@ import "./banners.css";
 const Banner2 = () => {
   const [value, setValue] = React.useState(new Date());
   return (
-    <Grid container className="banner2" py={7} px={3}>
-      <Stack spacing={2} direction="row" m="auto">
+    <Grid container className="banner2" spacing={2} p={10}>
+      <Grid item xs={12} lg={2}>
         <TextField
           label="Full Name"
           m={2}
+          size="small"
           color="secondary"
           variant="filled"
-          focused
         />
-        <TextField label="email" m={2} color="secondary" variant="filled" />
+      </Grid>
+      <Grid item xs={12} lg={2}>
+        <TextField
+          label="Email"
+          size="small"
+          m={2}
+          color="secondary"
+          variant="filled"
+        />
+      </Grid>
+      <Grid item xs={12} lg={2}>
+        <TextField
+          label="Phone"
+          m={2}
+          size="small"
+          color="secondary"
+          variant="filled"
+        />
+      </Grid>
+      <Grid item xs={12} lg={6}>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <DateTimePicker
             renderInput={(params) => (
-              <TextField m={2} color="secondary" variant="filled" {...params} />
+              <TextField
+                m={2}
+                color="secondary"
+                size="small"
+                variant="filled"
+                {...params}
+              />
             )}
             label="Book Appointment"
             value={value}
@@ -37,10 +62,15 @@ const Banner2 = () => {
             maxTime={new Date(0, 0, 0, 21, 55)} //need to work on it
           />
         </LocalizationProvider>
-        <Button variant="contained" color="primary">
+        <Button
+          size="large"
+          variant="contained"
+          color="primary"
+          sx={{ marginLeft: "1rem", marginTop: "0.2rem" }}
+        >
           Book Appontment
         </Button>
-      </Stack>
+      </Grid>
     </Grid>
   );
 };
