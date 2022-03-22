@@ -9,6 +9,7 @@ import { theme } from "./hocs/Theme";
 import Layout from "./hocs/Layout";
 import Home from "./containers/Home";
 import Login from "./containers/Login";
+import Post from "./components/Blogs/Post";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Routes>
               <Route path="/login" element={<Login />} />
               <Route exact path="/" element={<Home />} />
+              <Route exact path="/detailPost" element={<Post />} />
             </Routes>
           </Layout>
         </Router>

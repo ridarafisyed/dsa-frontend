@@ -15,18 +15,7 @@ import "./blog.css";
 const Blogs = () => {
   return (
     <Fragment>
-      <Box>
-        <Typography
-          component="h2"
-          variant="h3"
-          align="center"
-          className="Title"
-          color="gray"
-          mt={5}
-          sx={{ textTransform: "uppercase", fontWeight: 700 }}
-        >
-          Latest Blogs
-        </Typography>
+      <Box my={5}>
         <Grid container spacing={3} mb={5}>
           <Grid item xs={12} md={4}>
             <Card className="card" elevation={0}>
