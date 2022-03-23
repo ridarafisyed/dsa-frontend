@@ -5,6 +5,7 @@ import { Card, CardMedia, Grid, Typography, Stack } from "@mui/material";
 
 import Image1 from "../../asserts/Asset 5.png";
 import Image2 from "../../asserts/Asset 6.png";
+import Image3 from "../../asserts/Asset 7.png";
 import "./services.css";
 const Services = () => {
   return (
@@ -71,7 +72,7 @@ const Services = () => {
             </Card>
             <Card elevation={2}>
               <CardMedia align="center">
-                <img src={Image1} alt="visual of service one" />
+                <img src={Image3} alt="visual of service one" />
               </CardMedia>
               <Typography
                 component="h5"
