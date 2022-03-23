@@ -1,5 +1,5 @@
 /** @format */
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 
@@ -10,6 +10,8 @@ import Layout from "./hocs/Layout";
 import Home from "./containers/Home";
 import Login from "./containers/Login";
 import Post from "./components/Blogs/Post";
+import Dashbboard from "./components/Dashboard/Dashbboard";
+import PrivateRoutes from "./utils/PrivateRoute";
 
 function App() {
   return (
@@ -17,11 +19,12 @@ function App() {
       <ThemeProvider theme={theme}>
         <Router>
           <Layout>
-            <Routes>
-              <Route path="/login" element={<Login />} />
-              <Route exact path="/" element={<Home />} />
-              <Route exact path="/detailPost" element={<Post />} />
-            </Routes>
+            <Switch>
+              <Route path="/login" component={Login} />
+              <Route exact path="/" component={Home} />
+              <Route path="/detailPost" component={Post} />
+              <PrivateRoutes path="/dashboard" component={Dashbboard} />
+            </Switch>
           </Layout>
         </Router>
       </ThemeProvider>

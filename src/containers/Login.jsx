@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 import { connect } from "react-redux";
 import { login } from "../actions/auth";
@@ -32,12 +32,11 @@ const Login = ({ login, isAuthenticated }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
     login(username, email, password);
   };
 
   if (isAuthenticated) {
-    return <Navigate to="/" />;
+    return <Redirect to="/dashboard" />;
   }
 
   return (

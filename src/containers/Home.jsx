@@ -15,25 +15,41 @@ import Contact from "../components/Contact/Contact";
 const Home = () => {
   return (
     <Fragment>
-      <Header />
-      <About />
-      <Banner1 />
-      <Services />
-      <Typography
-        component="h2"
-        variant="h3"
-        align="center"
-        className="Title"
-        color="gray"
-        mt={5}
-        sx={{ textTransform: "uppercase", fontWeight: 700 }}
-      >
-        Latest Blogs
-      </Typography>
-      <Blogs />
-      <Banner2 />
-      <Feedback />
-      <Contact />
+      <section id="header">
+        <Header />
+      </section>
+      <section id="about">
+        <About />
+      </section>
+      <section id="qoute">
+        <Banner1 />
+      </section>
+      <section id="services">
+        <Services />
+      </section>
+      <section id="blogs">
+        <Typography
+          component="h2"
+          variant="h3"
+          align="center"
+          className="Title"
+          color="gray"
+          mt={5}
+          sx={{ textTransform: "uppercase", fontWeight: 700 }}
+        >
+          Latest Blogs
+        </Typography>
+        <Blogs />
+      </section>
+      <section id="appointment">
+        <Banner2 />
+      </section>
+      <section id="feedback">
+        <Feedback />
+      </section>
+      <section id="contact">
+        <Contact />
+      </section>
     </Fragment>
   );
 };
