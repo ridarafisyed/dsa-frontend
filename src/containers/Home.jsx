@@ -44,9 +44,9 @@ const Home = () => {
       <section id="appointment">
         <Banner2 />
       </section>
-      <section id="feedback">
+      {/* <section id="feedback">
         <Feedback />
-      </section>
+      </section> */}
       <section id="contact">
         <Contact />
       </section>

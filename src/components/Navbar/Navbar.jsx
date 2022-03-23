@@ -101,11 +101,11 @@ const Navbar = ({ isAuthenticated, logout }) => {
                 Quote
               </a>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link" href="/#feedback">
                 Testomonial
               </a>
-            </li>
+            </li> */}
             <li className="nav-item">
               <a className="nav-link" href="/#contact">
                 FindMe
