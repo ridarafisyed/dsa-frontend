@@ -214,9 +214,9 @@ const Navbar = ({ isAuthenticated, logout }) => {
                   </Menu>
                 </>
               ) : (
-                <a className="nav-link" href="/login">
+                <Link className="nav-link" to="/login">
                   Login
-                </a>
+                </Link>
               )}
             </li>
           </ul>
