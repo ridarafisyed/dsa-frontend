@@ -82,7 +82,7 @@ const Navbar = ({ isAuthenticated, logout }) => {
               </a>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" underline="none" href="/blogs">
+              <Link className="nav-link" underline="none" to="/blogs">
                 Blog
               </Link>
             </li>
@@ -101,7 +101,7 @@ const Navbar = ({ isAuthenticated, logout }) => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link underline="none" className="nav-link" href="/gallery">
+              <Link underline="none" className="nav-link" to="/gallery">
                 Gallery
               </Link>
             </li>
@@ -187,7 +187,7 @@ const Navbar = ({ isAuthenticated, logout }) => {
                       <Link
                         component={Button}
                         variant="text"
-                        href="/dashboard"
+                        to="/dashboard"
                         sx={{
                           color: "#d37aaf",
                           "&:hover": { color: "#42a870" },
