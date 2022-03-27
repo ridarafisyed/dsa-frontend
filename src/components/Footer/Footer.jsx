@@ -26,7 +26,7 @@ const Footer = () => {
             Dr. Syeda Ali
           </Typography>
           <Typography variant="h5" component="h6" mt={3}>
-            The Best Gynecologiest in Multan
+            The Best Gynecologist in Multan
           </Typography>
           <Typography variant="p" component="p" mt={3}>
             Social Media Links
@@ -51,7 +51,6 @@ const Footer = () => {
           </Box>
         </Grid>
         <Grid item xs={12} md={4}>
-          {" "}
           <Typography>IMPORTANT LINKS</Typography>
           <ul className="footer-links">
             <li>
@@ -77,10 +76,10 @@ const Footer = () => {
         <Grid item xs={12} md={4}>
           <Typography>FIND ME</Typography>
 
-          <Typography component="p" mb={5}>
+          <Typography component="p" mt={2} mb={3}>
             <i className="fas fa-at"></i> contactme@drsyeadaali.com
           </Typography>
-          <Typography component="p" mb={5}>
+          <Typography component="p" mb={3}>
             <i className="fas fa-phone-alt"></i>
             <NumberFormat
               value="3239876543"
@@ -90,13 +89,15 @@ const Footer = () => {
           </Typography>
 
           <Typography component="p" mb={5}>
-            <i className="fas fa-map-marker-alt"></i> Liberty, Lahore, Punjab,
-            Pakistan
-            <br />
-            54000
+            <i className="fas fa-map-marker-alt"></i>Obstetrics & Gynaecology
+            Department, Ward 17, <br />
+            Nishtar Hospital, Multan, <br />
+            Punjab, Pakistan
           </Typography>
         </Grid>
-        <Copyright />
+        <Grid item xs={12}>
+          <Copyright />
+        </Grid>
       </Grid>
     </Fragment>
   );

@@ -14,11 +14,11 @@ const Header = () => {
             Dr. Syeda Ali
           </Typography>
           <Typography component="h4" variant="h5" my={4} mx={2}>
-            The best Gynecologiests in Multan
+            The best Gynecologist in Multan
           </Typography>
           <Typography component="p" variant="p" my={4} mx={2}>
-            If you have any Question regarding your OBGYN health. Please book an
-            appointment or Leave a message.
+            If you have any Questions regarding your OBGYN health, Please book
+            an appointment or Leave a message.
           </Typography>
           <Stack spacing={2} direction="row">
             <Button variant="contained" color="primary">

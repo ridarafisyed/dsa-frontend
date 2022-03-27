@@ -18,6 +18,7 @@ import { CONFIG } from "../../utils/Configration";
 import axios from "axios";
 import React, { Fragment, useState, useEffect } from "react";
 import NumberFormat from "react-number-format";
+import Messages from "./Messages";
 
 const Dashbboard = () => {
   const [appointments, setAppointments] = useState([]);
@@ -48,12 +49,33 @@ const Dashbboard = () => {
   }, []);
   return (
     <Fragment>
+      <Typography
+        align="center"
+        variant="h5"
+        component="h5"
+        sx={{ textTransform: "uppercase" }}
+        mt={3}
+      >
+        Appointments
+      </Typography>
       <Grid container spacing={5} mt={5}>
         <Grid item xs={12} md={4}>
           <Box>
-            <Card>
+            <Card
+              component={Paper}
+              elevation={4}
+              sx={{
+                boxShadow:
+                  "0px 2px 4px -1px rgba(211, 122, 175, 0.4), 0px 4px 5px 0px rgba(211, 122, 175, 0.4), 0px 1px 10px 0px rgba(211, 122, 175, 0.4)",
+              }}
+            >
               <CardContent>
-                <Typography>Total Appointments</Typography>
+                <Typography
+                  color="primary"
+                  sx={{ textTransform: "uppercase", fontWeight: "500" }}
+                >
+                  Today
+                </Typography>
                 <Typography variant="h3" component="h2">
                   <NumberFormat
                     thousandsGroupStyle="thousand"
@@ -68,9 +90,21 @@ const Dashbboard = () => {
         </Grid>
         <Grid item xs={12} md={4}>
           <Box>
-            <Card>
+            <Card
+              component={Paper}
+              elevation={4}
+              sx={{
+                boxShadow:
+                  "0px 2px 4px -1px rgba(66, 168, 112, 0.4), 0px 4px 5px 0px rgba(66, 168, 112, 0.4), 0px 1px 10px 0px rgba(66, 168, 112, 0.4)",
+              }}
+            >
               <CardContent>
-                <Typography>Today Appointments</Typography>
+                <Typography
+                  color="secondary"
+                  sx={{ textTransform: "uppercase", fontWeight: "500" }}
+                >
+                  Tomorrow{" "}
+                </Typography>
                 <Typography variant="h3" component="h2">
                   <NumberFormat
                     thousandsGroupStyle="thousand"
@@ -85,9 +119,20 @@ const Dashbboard = () => {
         </Grid>
         <Grid item xs={12} md={4}>
           <Box>
-            <Card>
+            <Card
+              component={Paper}
+              elevation={4}
+              sx={{
+                boxShadow:
+                  "0px 2px 4px -1px rgba(150,150,150, 0.4), 0px 4px 5px 0px rgba(150,150,150, 0.4), 0px 1px 10px 0px rgba(150,150,150, 0.4)",
+              }}
+            >
               <CardContent>
-                <Typography>Tomorrow Appointments</Typography>
+                <Typography
+                  sx={{ textTransform: "uppercase", fontWeight: "500" }}
+                >
+                  Total
+                </Typography>
                 <Typography variant="h3" component="h2">
                   <NumberFormat
                     thousandsGroupStyle="thousand"
@@ -101,7 +146,28 @@ const Dashbboard = () => {
           </Box>
         </Grid>
         <Grid item xs={12} my={5}>
-          <TableContainer component={Paper} elevation={2}>
+          <Typography
+            align="center"
+            variant="h5"
+            component="h5"
+            sx={{ textTransform: "uppercase" }}
+            mt={3}
+          >
+            Messages
+          </Typography>
+          <Messages />
+        </Grid>
+        <Grid item xs={12} my={5}>
+          <Typography
+            align="center"
+            variant="h5"
+            component="h5"
+            sx={{ textTransform: "uppercase" }}
+            mt={3}
+          >
+            Appointments
+          </Typography>
+          <TableContainer component={Paper}>
             <Table>
               <TableHead>
                 <TableCell>Sr.</TableCell>

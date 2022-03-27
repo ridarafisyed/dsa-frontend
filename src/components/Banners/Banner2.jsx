@@ -1,17 +1,14 @@
 /** @format */
 
 import React, { Fragment, useState } from "react";
-
-import { Grid, TextField, Stack, Button, Box } from "@mui/material";
+import axios from "axios";
+import { Grid, TextField, Button, Box } from "@mui/material";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DateTimePicker from "@mui/lab/DateTimePicker";
 import { CONFIG } from "../../utils/Configration";
-import { connect } from "react-redux";
-import { createAppointment } from "../../actions/appointment";
 
 import "./banners.css";
-import axios from "axios";
 
 const Banner2 = () => {
   const [value, setValue] = React.useState(new Date());
@@ -44,6 +41,7 @@ const Banner2 = () => {
   return (
     <Fragment>
       <Box
+        my={5}
         component="form"
         Validate
         sx={{

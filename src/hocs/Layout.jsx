@@ -6,6 +6,7 @@ import { ScopedCssBaseline } from "@mui/material";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 import "./theme.css";
+import Sidebar from "../components/Navbar/Sidebar";
 
 // import { ThemeProvider } from "@mui/material/styles";
 
@@ -15,6 +16,7 @@ const Layout = ({ children }) => {
       <ScopedCssBaseline>
         <Container>
           <Navbar />
+
           {children}
           <Footer />
         </Container>

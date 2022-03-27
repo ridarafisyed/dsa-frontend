@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { Fragment, useState } from "react";
-// import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import {
   Menu,
   MenuItem,
@@ -10,13 +10,21 @@ import {
   IconButton,
   Link,
   Button,
+  Badge,
   ListItemIcon,
   Avatar,
 } from "@mui/material";
-import { Person, Logout } from "@mui/icons-material/";
+import {
+  Person,
+  Logout,
+  Mail,
+  Dashboard,
+  EventAvailable,
+} from "@mui/icons-material/";
 import { connect } from "react-redux";
 import { logout } from "../../actions/auth";
 import "./nav.css";
+import Sidebar from "./Sidebar";
 
 const Navbar = ({ isAuthenticated, logout }) => {
   const [redirect, setRedirect] = useState(false);
@@ -36,7 +44,9 @@ const Navbar = ({ isAuthenticated, logout }) => {
     logout();
     setRedirect(true);
   };
-
+  const moveTo = () => {
+    <Redirect to="/home" />;
+  };
   return (
     <Fragment>
       <nav className="navbar navbar-light navbar-expand-md bg-light justify-content-md-center justify-content-start">
@@ -147,13 +157,52 @@ const Navbar = ({ isAuthenticated, logout }) => {
                       <Button> Profile</Button>
                     </MenuItem>
                     <MenuItem>
-                      <Button
-                        color="primary"
+                      <ListItemIcon>
+                        <Badge badgeContent={4} color="secondary">
+                          <Mail color="action" />
+                        </Badge>
+                      </ListItemIcon>
+
+                      <Button color="primary"> Messages</Button>
+                    </MenuItem>
+                    <MenuItem>
+                      <ListItemIcon>
+                        <Badge badgeContent={4} color="secondary">
+                          <EventAvailable color="action" />
+                        </Badge>
+                      </ListItemIcon>
+
+                      <Button color="primary"> Appointments</Button>
+                    </MenuItem>
+                    <MenuItem
+                      sx={{
+                        ".MuiButtonBase-root": {
+                          color: "primary",
+                          "&:hover": { color: "#42a870" },
+                        },
+                      }}
+                    >
+                      <ListItemIcon>
+                        <Dashboard fontSize="small" />
+                      </ListItemIcon>
+                      <Link
+                        component={Button}
+                        variant="text"
                         href="/dashboard"
-                        sx={{ color: "pink" }}
+                        sx={{
+                          color: "#d37aaf",
+                          "&:hover": { color: "#42a870" },
+                        }}
                       >
-                        Dashboard
-                      </Button>
+                        <span
+                          style={{
+                            color: "#d37aaf",
+                            "&:hover": { color: "#42a870" },
+                          }}
+                        >
+                          Dashboard
+                        </span>
+                      </Link>
                     </MenuItem>
 
                     <Divider sx={{ my: 0.5 }} />

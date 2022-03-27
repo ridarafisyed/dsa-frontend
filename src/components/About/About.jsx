@@ -41,13 +41,17 @@ const About = () => {
                   Who is Dr. Syeda Ali?
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Dr. Syeda Ali is an experienced Gynecologiest of Multan. She
-                  completed her F.Sc. in Multan Board of intermediate education
-                  with distinction. she was the gold medalist in MBBS Nishtar
-                  Medical College & Hospital, completed her FCPS in 2005, and
-                  started her medical journey at Nishtar Medical University. She
-                  is selected thrice by the Punjab Public service commission and
-                  is Head of the OBGY department Ward 16
+                  Dr Syeda Ali is an experienced Gynaecologist of Multan. She is
+                  a gold medalist. She topped in FSc in Multan Board of
+                  intermediate education. She topped in MBBS in whole
+                  university. She did FCPS in 2005 and since then is employed in
+                  Nishtar medical University. She is selected thrice by Punjab
+                  Public service comission and always on top merit in Punjab.
+                  She has a vast experience of treating all type of difficult
+                  Obstetrics and Gynaecology Surgery and dealing every type of
+                  emergency. Nowadays She is Associate Professor Obstetrics and
+                  Gynaecology and the Head of the OBGY department Ward 17 in
+                  Nishtar medical University on regular basis.
                 </Typography>
               </CardContent>
               <CardActions>

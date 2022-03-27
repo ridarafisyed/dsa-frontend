@@ -13,12 +13,12 @@ const Services = () => {
       <Grid
         container
         className="section-text"
-        spacing={10}
+        spacing={5}
         sx={{
           textTransform: "uppercase",
           fontWeight: 700,
           "&	.MuiCard-root": {
-            minWidth: "20rem",
+            minWidth: "22rem",
             borderRadius: "3rem",
             p: 3,
           },
@@ -41,8 +41,7 @@ const Services = () => {
               <img src={Image1} alt="visual of service one" />
             </CardMedia>
             <Typography
-              component="h5"
-              variant="h5"
+              variant="h6"
               align="center"
               className="Title"
               color="gray"
@@ -59,8 +58,7 @@ const Services = () => {
               <img src={Image2} alt="visual of service one" />
             </CardMedia>
             <Typography
-              component="h5"
-              variant="h5"
+              variant="h6"
               align="center"
               className="Title"
               color="gray"
@@ -77,8 +75,7 @@ const Services = () => {
               <img src={Image3} alt="visual of service one" />
             </CardMedia>
             <Typography
-              component="h5"
-              variant="h5"
+              variant="h6"
               align="center"
               className="Title"
               color="gray"
