@@ -12,6 +12,7 @@ import Login from "./containers/Login";
 import Post from "./components/Blogs/Post";
 import Dashbboard from "./components/Dashboard/Dashbboard";
 import PrivateRoutes from "./utils/PrivateRoute";
+import PhotoGallery from "./components/Gallery/PhotoGallery";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path="/login" component={Login} />
               <Route exact path="/" component={Home} />
               <Route path="/detailPost" component={Post} />
+              <Route path="/gallery" component={PhotoGallery} />
               <PrivateRoutes path="/dashboard" component={Dashbboard} />
             </Switch>
           </Layout>
