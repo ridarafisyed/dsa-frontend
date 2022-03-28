@@ -26,7 +26,7 @@ const Footer = () => {
             Dr. Syeda Ali
           </Typography>
           <Typography variant="h5" component="h6" mt={3}>
-            The Best Gynecologist in Multan
+            The Best Gynaecologist in Multan
           </Typography>
           <Typography variant="p" component="p" mt={3}>
             Social Media Links

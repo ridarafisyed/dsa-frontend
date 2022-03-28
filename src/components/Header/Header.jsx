@@ -14,7 +14,7 @@ const Header = () => {
             Dr. Syeda Ali
           </Typography>
           <Typography component="h4" variant="h5" my={4} mx={2}>
-            The best Gynecologist in Multan
+            The best Gynaecologist in Multan
           </Typography>
           <Typography component="p" variant="p" my={4} mx={2}>
             If you have any Questions regarding your OBGYN health, Please book
