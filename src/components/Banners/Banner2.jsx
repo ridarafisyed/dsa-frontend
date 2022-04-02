@@ -1,37 +1,95 @@
 /** @format */
 
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import axios from "axios";
-import { Grid, TextField, Button, Box } from "@mui/material";
+import { Grid, TextField, Button, Box, Select, MenuItem } from "@mui/material";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import DateTimePicker from "@mui/lab/DateTimePicker";
+import DatePicker from "@mui/lab/DatePicker";
 import { CONFIG } from "../../utils/Configration";
 
 import "./banners.css";
+const SLOTS = [
+  { id: 0, slot: "12:30 PM – 12:45 PM" },
+  { id: 1, slot: "12:45 PM – 01:00 PM" },
+  { id: 2, slot: "01:00 PM – 01:15 PM" },
+  { id: 3, slot: "01:15 PM – 01:30 PM" },
+  { id: 4, slot: "01:30 PM – 01:45 PM" },
+  { id: 5, slot: "07:00 PM – 07:15 PM" },
+  { id: 6, slot: "07:15 PM – 07:30 PM" },
+  { id: 7, slot: "07:30 PM – 07:45 PM" },
+  { id: 8, slot: "07:45 PM – 08:00 PM" },
+  { id: 9, slot: "08:00 PM – 08:15 PM" },
+  { id: 10, slot: "08:15 PM – 08:30 PM" },
+  { id: 11, slot: "08:30 PM – 08:45 PM" },
+  { id: 12, slot: "08:45 PM – 09:00 PM" },
+  { id: 13, slot: "09:00 PM – 09:15 PM" },
+  { id: 14, slot: "09:15 PM – 09:30 PM" },
+];
 
 const Banner2 = () => {
+  const today = new Date();
+  const [slots, setSlots] = useState([]);
+  const [timeSlots, setTimeSlots] = useState([]);
   const [value, setValue] = React.useState(new Date());
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
+    time: "",
   });
+  let availableSlots = [];
 
-  const { name, email, phone } = formData;
+  const { name, email, phone, time } = formData;
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
+  const handleChange = (value) => {
+    setValue(value);
+    fetchSlot(value);
+  };
+  useEffect(() => {
+    fetchSlot(today);
+  }, []);
+
+  const fetchSlot = (date) => {
+    let month = date.getMonth() + 1;
+    let monthFormate = month.toString().padStart(2, "0");
+    let dateFormate = date.getDate().toString().padStart(2, "0");
+    var confirmDate =
+      value.getFullYear() + "-" + monthFormate + "-" + dateFormate;
+
+    console.log(date);
+    console.log(confirmDate);
+    axios
+      .get(
+        `${process.env.REACT_APP_API_URL}/api/get-slots/?search=${confirmDate}`,
+        CONFIG,
+      )
+      .then((res) => {
+        // console.log(res.data);
+        setTimeSlots(res.data);
+
+        timeSlots.length !== 0
+          ? timeSlots.map((item) => availableSlots.push(item.timeslot))
+          : (availableSlots = slots);
+        setSlots(SLOTS.filter((el) => !availableSlots.includes(el.id)));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
     var date = value.toLocaleDateString("YYYY-MM-DD");
-    var time = value.toLocaleTimeString("hh:mm:ss");
+
     const body = JSON.stringify({ name, email, phone, date, time });
     axios
       .post(`${process.env.REACT_APP_API_URL}/api/appointment/`, body, CONFIG)
       .then((res) => {
-        console.log(res);
+        setTimeSlots(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -40,16 +98,8 @@ const Banner2 = () => {
 
   return (
     <Fragment>
-      <Box
-        my={5}
-        component="form"
-        Validate
-        sx={{
-          "& .MuiTextField-root": { m: 1 },
-        }}
-        onSubmit={(e) => onSubmit(e)}
-      >
-        <Grid container className="banner2" spacing={2} p={10}>
+      <Box my={4} component="form" Validate onSubmit={(e) => onSubmit(e)}>
+        <Grid container className="banner2" spacing={1} p={10}>
           <Grid item xs={12} lg={2}>
             <TextField
               name="name"
@@ -95,9 +145,9 @@ const Banner2 = () => {
               variant="filled"
             />
           </Grid>
-          <Grid item xs={12} lg={6}>
+          <Grid item xs={12} lg={3}>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
-              <DateTimePicker
+              <DatePicker
                 renderInput={(params) => (
                   <TextField
                     m={2}
@@ -107,24 +157,45 @@ const Banner2 = () => {
                     {...params}
                   />
                 )}
-                label="Book Appointment"
+                label="Pick the Day"
                 value={value}
-                onChange={(newValue) => {
-                  setValue(newValue);
+                onChange={(value) => {
+                  handleChange(value);
                 }}
-                minDate={value}
-                minTime={value}
-                maxTime={new Date(0, 0, 0, 21, 55)} //need to work on it
+                minDate={today}
               />
             </LocalizationProvider>
+          </Grid>
+          <Grid item xs={12} lg={3}>
+            <TextField
+              id="outlined-select-currency"
+              select
+              color="secondary"
+              size="small"
+              variant="filled"
+              label="Select"
+              value={time}
+              onChange={(e) => onChange(e)}
+              helperText="Please Select Time Slot"
+            >
+              {slots.map((option) => (
+                <MenuItem key={option.id} value={option.id}>
+                  <span>
+                    <b>Slot {option.id + 1}: </b> {option.slot}
+                  </span>
+                </MenuItem>
+              ))}
+            </TextField>
+          </Grid>
+          <Grid item>
             <Button
               size="large"
               variant="contained"
               color="primary"
               type="submit"
-              sx={{ marginLeft: "1rem", marginTop: "0.2rem" }}
+              sx={{ marginLeft: "1rem", marginTop: "0.75rem" }}
             >
-              Book Appontment
+              Book Now
             </Button>
           </Grid>
         </Grid>
