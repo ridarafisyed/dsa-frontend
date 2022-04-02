@@ -22,16 +22,16 @@ import Messages from "./Messages";
 
 const Dashbboard = () => {
   const [appointments, setAppointments] = useState([]);
-
+  const [today, setToday] = useState(new Date());
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [status, setStatus] = useState("");
 
   const FetchAppointments = () => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/api/appointment`, CONFIG)
+
+      .get(`${process.env.REACT_APP_API_URL}/api/get-appointments`, CONFIG)
       .then((res) => {
-        console.log(res.data);
         setAppointments(res.data);
 
         setLoading(false);
@@ -43,7 +43,25 @@ const Dashbboard = () => {
         setError(err.message);
       });
   };
+  const dateFormater = (data) => {
+    let month = data.getMonth() + 1;
+    let monthFormate = month.toString().padStart(2, "0");
+    let dateFormate = data.getDate().toString().padStart(2, "0");
+    let date = data.getFullYear() + "-" + monthFormate + "-" + dateFormate;
+    return date;
+  };
 
+  const estimateDate = () => {
+    let currentDate = dateFormater(today);
+    let nextDate = new Date(today);
+    nextDate.setDate(nextDate.getDate() + 1);
+    nextDate = dateFormater(nextDate);
+    const current = appointments.filter((item) => item.date === currentDate);
+    const next = appointments.filter((item) => item.date === nextDate);
+
+    return [current.length, next.length];
+  };
+  const [current, next] = estimateDate();
   useEffect(() => {
     FetchAppointments();
   }, []);
@@ -81,7 +99,7 @@ const Dashbboard = () => {
                     thousandsGroupStyle="thousand"
                     thousandSeparator={true}
                     displayType={"text"}
-                    value={appointments.length}
+                    value={current}
                   />
                 </Typography>
               </CardContent>
@@ -110,7 +128,7 @@ const Dashbboard = () => {
                     thousandsGroupStyle="thousand"
                     thousandSeparator={true}
                     displayType={"text"}
-                    value={appointments.length}
+                    value={next}
                   />
                 </Typography>
               </CardContent>
