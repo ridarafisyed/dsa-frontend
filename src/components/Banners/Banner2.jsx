@@ -36,14 +36,19 @@ const Banner2 = () => {
     name: "",
     email: "",
     phone: "",
-    time: "",
   });
   let availableSlots = [];
 
-  const { name, email, phone, time } = formData;
+  const { name, email, phone } = formData;
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const [selectedSlot, setSelectedSlot] = useState("");
+
+  const handleSelectedSlotChange = (event) => {
+    setSelectedSlot(event.target.value);
+  };
 
   const handleChange = (value) => {
     setValue(value);
@@ -80,16 +85,22 @@ const Banner2 = () => {
         console.log(err);
       });
   };
-
+  const resetForm = () => {
+    window.location.reload(true);
+  };
   const onSubmit = (e) => {
     e.preventDefault();
-    var date = value.toLocaleDateString("YYYY-MM-DD");
-
-    const body = JSON.stringify({ name, email, phone, date, time });
+    let month = value.getMonth() + 1;
+    let monthFormate = month.toString().padStart(2, "0");
+    let dateFormate = value.getDate().toString().padStart(2, "0");
+    var date = value.getFullYear() + "-" + monthFormate + "-" + dateFormate;
+    var timeslot = parseInt(selectedSlot);
+    const body = JSON.stringify({ name, email, phone, date, timeslot });
     axios
       .post(`${process.env.REACT_APP_API_URL}/api/appointment/`, body, CONFIG)
       .then((res) => {
         setTimeSlots(res.data);
+        resetForm();
       })
       .catch((err) => {
         console.log(err);
@@ -174,12 +185,15 @@ const Banner2 = () => {
               size="small"
               variant="filled"
               label="Select"
-              value={time}
-              onChange={(e) => onChange(e)}
+              value={selectedSlot}
+              onChange={handleSelectedSlotChange}
               helperText="Please Select Time Slot"
             >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
               {slots.map((option) => (
-                <MenuItem key={option.id} value={option.id}>
+                <MenuItem value={option.id}>
                   <span>
                     <b>Slot {option.id + 1}: </b> {option.slot}
                   </span>
