@@ -29,7 +29,6 @@ const Dashbboard = () => {
 
   const FetchAppointments = () => {
     axios
-
       .get(`${process.env.REACT_APP_API_URL}/api/get-appointments`, CONFIG)
       .then((res) => {
         setAppointments(res.data);

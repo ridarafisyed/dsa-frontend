@@ -35,3 +35,19 @@
   color: #333;
   font-size: 2.5rem;
 }
+
+/* blogs list page styles */
+.bannerImage {
+  background: url("../../asserts/Asset10.png");
+  background-size: 100%;
+}
+.feature_post_image {
+  position: relative;
+  top: 5rem;
+  width: 25rem;
+  border: solid 1px #ddd;
+  border-radius: 3rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

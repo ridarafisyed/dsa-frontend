@@ -122,12 +122,21 @@ export const theme = createTheme({
     },
     caption: {
       fontSize: "0.9rem",
+      fontWeight: 300,
+      lineHeight: 1.8,
+      letterSpacing: "0.07em",
     },
     overline: {
       fontSize: "0.8rem",
+      fontWeight: 300,
+      lineHeight: 1.8,
+      letterSpacing: "0.07em",
     },
     h3: {
       letterSpacing: "0.05em",
+      fontWeight: 300,
+      lineHeight: 1.8,
+      letterSpacing: "0.07em",
     },
   },
 });
