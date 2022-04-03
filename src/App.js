@@ -14,6 +14,7 @@ import Dashbboard from "./components/Dashboard/Dashbboard";
 import PrivateRoutes from "./utils/PrivateRoute";
 import PhotoGallery from "./components/Gallery/PhotoGallery";
 import BlogList from "./components/Blogs/BlogList";
+import CreatePost from "./components/Blogs/CreatePost";
 
 function App() {
   return (
