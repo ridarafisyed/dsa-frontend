@@ -82,7 +82,7 @@ const Navbar = ({ isAuthenticated, logout }) => {
               </a>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" underline="none" to="/blogs">
+              <Link className="nav-link" underline="none" to="/blogs-list">
                 Blog
               </Link>
             </li>
