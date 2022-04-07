@@ -18,12 +18,12 @@ const CreatePost = () => {
     content: "",
     featured: false,
   });
-  let availableSlots = [];
 
   const { title, category, excerpt, content, featured } = formData;
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
+
   const onSubmit = () => {
     console.log("form submitted");
   };
@@ -51,6 +51,8 @@ const CreatePost = () => {
       <TextField
         mb={2}
         fullWidth
+        multiline
+        rows={4}
         id="excerpt"
         label="Excerpt of the Post"
         variant="outlined"

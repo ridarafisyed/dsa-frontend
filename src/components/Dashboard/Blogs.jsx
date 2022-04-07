@@ -3,7 +3,7 @@
 import React, { Fragment, useState, useEffect } from "react";
 import axios from "axios";
 import { CONFIG } from "../../utils/Configration";
-import CircularProgress from "@mui/material/CircularProgress";
+
 import {
   Grid,
   Box,
@@ -16,8 +16,15 @@ import {
   Paper,
   Typography,
   Modal,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogActions,
   Button,
 } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 import { getPostDate } from "../../utils/helperFunctions";
 import { useToggle } from "../../utils/useToggle";
 import CreatePost from "./CreatePost";
@@ -41,6 +48,9 @@ const Blogs = () => {
   const [latestBlog, setLatestBlog] = useState([]);
   const [error, setError] = useState("");
   const [status, setStatus] = useState("");
+
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   const fetchFeaturedPost = () => {
     axios
@@ -101,20 +111,31 @@ const Blogs = () => {
               Create Post
             </Button>
           </Box>
-          <Modal
+          <Dialog
+            fullScreen={fullScreen}
             open={isOpen}
             onClose={() => setIsOpen(isOpen)}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
+            aria-labelledby="responsive-dialog-title"
           >
-            <Box sx={style}>
+            <DialogTitle id="responsive-dialog-title">
+              {"Create New Post"}
+            </DialogTitle>
+            <DialogContent>
+              <CreatePost />
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={() => setIsOpen(isOpen)} autoFocus>
+                Close
+              </Button>
+            </DialogActions>
+            {/* <Box sx={style}>
               <Typography id="modal-modal-title" variant="h6" component="h2">
                 {" "}
                 Create New Post
               </Typography>
               <CreatePost />
-            </Box>
-          </Modal>
+            </Box> */}
+          </Dialog>
         </Grid>
         <Grid item xs={12} md={12}>
           <Typography
