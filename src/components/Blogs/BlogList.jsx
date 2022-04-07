@@ -1,25 +1,48 @@
 /** @format */
 
-import { Grid, Typography, Card, CardMedia, CardContent } from "@mui/material";
+import {
+  Grid,
+  Typography,
+  Card,
+  CardMedia,
+  CardContent,
+  Container,
+} from "@mui/material";
 import React, { Fragment, useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import BannerImage from "../../asserts/Asset10.png";
+import NumberFormat from "react-number-format";
 import { CONFIG } from "../../utils/Configration";
 import "./blog.css";
+import { getPostDate } from "../../utils/helperFunctions";
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [featuredBlog, setFeaturedBlog] = useState([]);
+  const [latestBlog, setLatestBlog] = useState([]);
   const [error, setError] = useState("");
   const [status, setStatus] = useState("");
 
-  const fetchData = () => {
+  const fetchFeaturedPost = () => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/api/blog/featured`, CONFIG)
+      .get(`${process.env.REACT_APP_API_URL}/api/blog/featured/`, CONFIG)
       .then((res) => {
         setFeaturedBlog(res.data[0]);
+
+        // setStatus(res.statusText);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+        // setError(err.message);
+      });
+  };
+  const fetchLatestPost = () => {
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/api/blog/latest/`, CONFIG)
+      .then((res) => {
+        setLatestBlog(res.data[0]);
 
         // setStatus(res.statusText);
       })
@@ -32,7 +55,7 @@ const BlogList = () => {
 
   const fetchBlogs = () => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/api/blog/`, CONFIG)
+      .get(`${process.env.REACT_APP_API_URL}/api/blog/posts/`, CONFIG)
       .then((res) => {
         setBlogs(res.data);
 
@@ -47,12 +70,13 @@ const BlogList = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    fetchFeaturedPost();
+    fetchLatestPost();
     fetchBlogs();
   }, []);
 
   return (
-    <Fragment>
+    <Container>
       <Grid container>
         <Grid item className="bannerImage" xs={12} p={10}>
           <Typography
@@ -75,51 +99,48 @@ const BlogList = () => {
           >
             Feature Blog
           </Typography>
-          {
-            featuredBlog.length === 0 ? (
-              <Typography>No Post</Typography>
-            ) : (
-              console.log("data in feature")
-            )
-            // <Grid container>
-            //   <Grid item xs={12} md={6}>
-            //     <CardMedia
-            //       component="img"
-            //       src="https://images.pexels.com/photos/7089401/pexels-photo-7089401.jpeg?cs=srgb&dl=pexels-mart-production-7089401.jpg&fm=jpg"
-            //       alt="blog visual"
-            //       height="255"
-            //     />
-            //   </Grid>
-            //   <Grid item xs={12} md={6}>
-            //     <CardContent>
-            //       <Typography
-            //         component="h3"
-            //         variant="h5"
-            //         className="cardTitle"
-            //         mb={3}
-            //       >
-            //         {featuredBlog.title}
-            //       </Typography>
-            //       <Typography component="p" variant="caption" mb={3}>
-            //         31 Dec 2022
-            //       </Typography>
-            //       <Typography
-            //         component="p"
-            //         variant="body2"
-            //         color="text.secondary"
-            //       >
-            //         {featuredBlog.excerpt}
-            //       </Typography>
-            //       <Link
-            //         to={`/blog/${featuredBlog.slug}`}
-            //         className="text-white font-weight-bold"
-            //       >
-            //         Continue reading...
-            //       </Link>
-            //     </CardContent>
-            //   </Grid>
-            // </Grid>
-          }
+          {featuredBlog.length === 0 ? (
+            <Typography>No Post</Typography>
+          ) : (
+            <Grid container>
+              <Grid item xs={12} md={6}>
+                <CardMedia
+                  component="img"
+                  src={featuredBlog.thumbnail}
+                  alt="blog visual"
+                  height="255"
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <CardContent>
+                  <Typography
+                    component="h3"
+                    variant="h5"
+                    className="cardTitle"
+                    mb={3}
+                  >
+                    {featuredBlog.title}
+                  </Typography>
+                  <Typography component="p" variant="caption" mb={3}>
+                    {getPostDate(featuredBlog.pub_date)}
+                  </Typography>
+                  <Typography
+                    component="p"
+                    variant="body2"
+                    color="text.secondary"
+                  >
+                    {featuredBlog.excerpt}
+                  </Typography>
+                  <Link
+                    to={`/blog/${featuredBlog.slug}`}
+                    className="text-white font-weight-bold"
+                  >
+                    Continue reading...
+                  </Link>
+                </CardContent>
+              </Grid>
+            </Grid>
+          )}
         </Grid>
         <Grid item xs={12}>
           <Typography
@@ -132,41 +153,48 @@ const BlogList = () => {
           >
             Latest Blog
           </Typography>
-          <Grid container>
-            <Grid item xs={12} md={6}>
-              <CardMedia
-                component="img"
-                src="https://images.pexels.com/photos/7089401/pexels-photo-7089401.jpeg?cs=srgb&dl=pexels-mart-production-7089401.jpg&fm=jpg"
-                alt="blog visual"
-                height="255"
-              />
+          {latestBlog.length === 0 ? (
+            <Typography>No Post</Typography>
+          ) : (
+            <Grid container>
+              <Grid item xs={12} md={6}>
+                <CardMedia
+                  component="img"
+                  src={latestBlog.thumbnail}
+                  alt="blog visual"
+                  height="255"
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <CardContent>
+                  <Typography
+                    component="h3"
+                    variant="h5"
+                    className="cardTitle"
+                    mb={3}
+                  >
+                    {latestBlog.title}
+                  </Typography>
+                  <Typography component="p" variant="caption" mb={3}>
+                    {getPostDate(latestBlog.pub_date)}
+                  </Typography>
+                  <Typography
+                    component="p"
+                    variant="body2"
+                    color="text.secondary"
+                  >
+                    {latestBlog.excerpt}
+                  </Typography>
+                  <Link
+                    to={`/blog/${latestBlog.slug}`}
+                    className="text-white font-weight-bold"
+                  >
+                    Continue reading...
+                  </Link>
+                </CardContent>
+              </Grid>
             </Grid>
-            <Grid item xs={12} md={6}>
-              <CardContent>
-                <Typography
-                  component="h3"
-                  variant="h5"
-                  className="cardTitle"
-                  mb={3}
-                >
-                  Title of the Post
-                </Typography>
-                <Typography component="p" variant="caption" mb={3}>
-                  31 Dec 2022
-                </Typography>
-                <Typography
-                  component="p"
-                  variant="body2"
-                  color="text.secondary"
-                >
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Perferendis aspernatur non cumque debitis incidunt vero ab
-                  quisquam sint consequatur, labore sequi necessitatibus magnam
-                  fuga temporibus magni maxime expedita aperiam. Ducimus.
-                </Typography>
-              </CardContent>
-            </Grid>
-          </Grid>
+          )}
         </Grid>
       </Grid>
       <Grid container spacing={5} my={10}>
@@ -213,7 +241,7 @@ const BlogList = () => {
           <Typography>No Post </Typography>
         )}
       </Grid>
-    </Fragment>
+    </Container>
   );
 };
 

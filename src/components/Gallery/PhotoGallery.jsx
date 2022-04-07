@@ -20,10 +20,11 @@ import Image13 from "../../asserts/gallery/13.png";
 import Image14 from "../../asserts/gallery/14.png";
 import Image15 from "../../asserts/gallery/15.png";
 import Image16 from "../../asserts/gallery/16.png";
+import { Container } from "@mui/material";
 
 export default function Gallery() {
   return (
-    <Fragment>
+    <Container>
       <ImageList cols={3}>
         <ImageListItem>
           <img src={Image1} alt="some Visual" loading="lazy" />
@@ -74,6 +75,6 @@ export default function Gallery() {
           <img src={Image16} alt="some Visual" loading="lazy" />
         </ImageListItem>
       </ImageList>
-    </Fragment>
+    </Container>
   );
 }

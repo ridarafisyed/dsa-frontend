@@ -58,7 +58,17 @@ const CreatePost = () => {
         onChange={(e) => onChange(e)}
         name="excerpt"
       />
-      <Editor />
+      <TextField
+        component={Editor}
+        initialValue="<p>This is the initial content of the editor.</p>"
+        apiKey={process.env.TINY_API_KEY}
+        init={{
+          height: 500,
+          menubar: false,
+        }}
+        value={content}
+        onEditorChange={(e) => onChange(e)}
+      />
       <FormControlLabel
         mb={2}
         control={

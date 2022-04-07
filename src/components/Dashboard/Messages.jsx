@@ -14,6 +14,7 @@ import {
   Paper,
   Typography,
 } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
 import { CONFIG } from "../../utils/Configration";
 import axios from "axios";
 import React, { Fragment, useState, useEffect } from "react";
@@ -49,6 +50,17 @@ const Messages = () => {
   return (
     <Fragment>
       <Grid container>
+        <Grid item xs={12}>
+          <Typography
+            align="center"
+            variant="h5"
+            component="h5"
+            sx={{ textTransform: "uppercase" }}
+            mt={3}
+          >
+            Messages
+          </Typography>
+        </Grid>
         <Grid item xs={12} my={5}>
           <TableContainer component={Paper} elevation={2}>
             <Table>
@@ -94,7 +106,18 @@ const Messages = () => {
                     </TableRow>
                   ))
                 ) : (
-                  <h1>Loading ...</h1>
+                  <TableRow>
+                    <TableCell spanCol={7} align="center">
+                      <Box
+                        sx={{
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <CircularProgress />
+                      </Box>
+                    </TableCell>
+                  </TableRow>
                 )}
               </TableBody>
             </Table>

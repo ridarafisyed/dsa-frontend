@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { Fragment } from "react";
-import { Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 
 import Header from "../components/Header/Header";
 import About from "../components/About/About";
@@ -14,7 +14,7 @@ import Contact from "../components/Contact/Contact";
 
 const Home = () => {
   return (
-    <Fragment>
+    <Container>
       <section id="header">
         <Header />
       </section>
@@ -28,17 +28,6 @@ const Home = () => {
         <Services />
       </section>
       <section id="blogs">
-        <Typography
-          component="h2"
-          variant="h3"
-          align="center"
-          className="Title"
-          color="gray"
-          mt={5}
-          sx={{ textTransform: "uppercase", fontWeight: 700 }}
-        >
-          Latest Blogs
-        </Typography>
         <Blogs />
       </section>
       <section id="appointment">
@@ -50,7 +39,7 @@ const Home = () => {
       <section id="contact">
         <Contact />
       </section>
-    </Fragment>
+    </Container>
   );
 };
 

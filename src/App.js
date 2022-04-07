@@ -10,11 +10,15 @@ import Layout from "./hocs/Layout";
 import Home from "./containers/Home";
 import Login from "./containers/Login";
 import Post from "./components/Blogs/Post";
-import Dashbboard from "./components/Dashboard/Dashbboard";
+import Dashboard from "./components/Dashboard/Dashboard";
 import PrivateRoutes from "./utils/PrivateRoute";
 import PhotoGallery from "./components/Gallery/PhotoGallery";
 import BlogList from "./components/Blogs/BlogList";
-import CreatePost from "./components/Blogs/CreatePost";
+import CreatePost from "./components/Dashboard/CreatePost";
+import { DashboardLayout } from "./components/Dashboard/Dashboard";
+import Appointment from "./components/Dashboard/Appointment";
+import Messages from "./components/Dashboard/Messages";
+import Blogs from "./components/Dashboard/Blogs";
 
 function App() {
   return (
@@ -27,9 +31,14 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route path="/detailPost" component={Post} />
               <Route path="/gallery" component={PhotoGallery} />
-              <Route path="/blogs" component={BlogList} />
+              <Route path="/blogs-list" component={BlogList} />
               <Route exact path="/create-post" component={CreatePost} />
-              <PrivateRoutes path="/dashboard" component={Dashbboard} />
+              <DashboardLayout>
+                <PrivateRoutes path="/dashboard" component={Dashboard} />
+                <PrivateRoutes path="/appointments" component={Appointment} />
+                <PrivateRoutes path="/messages" component={Messages} />
+                <PrivateRoutes path="/blogs" component={Blogs} />
+              </DashboardLayout>
             </Switch>
           </Layout>
         </Router>
