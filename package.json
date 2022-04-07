@@ -36,8 +36,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    
-    "build":"react-scripts run",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -72,5 +71,3 @@
   },
   "homepage": "http://localhost:3000"
 }
-
-
