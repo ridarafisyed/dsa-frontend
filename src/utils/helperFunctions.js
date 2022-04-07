@@ -30,3 +30,10 @@ export const dateFormater = (data) => {
   let date = data.getFullYear() + "-" + monthFormate + "-" + dateFormate;
   return date;
 };
+
+export const convertToSlug = (text) => {
+  return text
+    .toLowerCase()
+    .replace(/ /g, "-")
+    .replace(/[^\w-]+/g, "");
+};
