@@ -1,6 +1,8 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
+  "name": "dsa-frontend-website",
+  "version": "0.1.2",
+  "description":"Dr Syeda Ali is an experienced Gynaecologist of Multan. She is a gold medalist. She topped in FSc in Multan Board of intermediate education. She topped in MBBS in whole university. She did FCPS in 2005 and since then is employed in Nishtar medical University. She is selected thrice by Punjab Public service comission and always on top merit in Punjab. She has a vast experience of treating all type of difficult Obstetrics and Gynaecology Surgery and dealing every type of emergency. Nowadays She is Associate Professor Obstetrics and Gynaecology and the Head of the OBGY department Ward 17 in Nishtar medical University on regular basis.",
+  "keywords": ["gynaecology", "pcos", "pregnency", "infertility", "fertility", "hormonal imbalance", "PCOs"],
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.8.2",
@@ -18,7 +20,7 @@
     "bootstrap": "^5.1.3",
     "date-fns": "^2.28.0",
     "lodash": "^4.17.21",
-    "npm": "^8.5.3",
+    "npm": "^8.19.3",
     "react": "^17.0.2",
     "react-bootstrap": "^2.2.0",
     "react-dom": "^17.0.2",
@@ -58,7 +60,6 @@
       "last 1 safari version"
     ]
   },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "repository": {
     "type": "git",
