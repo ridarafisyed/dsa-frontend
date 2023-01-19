@@ -14,10 +14,15 @@ const Layout = ({ children }) => {
   return (
     <Fragment>
       <CssBaseline>
-        <Navbar />
+      <Navbar />
+        <Container>
+        
         {children}
+       
+        </Container>
         <Footer />
       </CssBaseline>
+      
     </Fragment>
   );
 };

@@ -7,8 +7,8 @@ import { Box } from "@mui/system";
 
 const Banner1 = () => {
   return (
-    <Grid container className="banner1">
-      <Grid item m={2}>
+    <Grid container className="banner1" my={5}>
+      <Grid item m={4}>
         <Box
           sx={{
             display: "flex",
@@ -17,8 +17,8 @@ const Banner1 = () => {
             alignContent: "center",
           }}
         >
-          <Typography component="p" variant="h4" py={5} px={15}>
-            <Typography component="span" variant="h3" color="primary" m={3}>
+          <Typography component="p" variant="h4" py={8} px={20}>
+            <Typography component="span" variant="h4" color="primary" m={3}>
               <i class="fa fa-quote-left"></i>
             </Typography>
             My whole professional life has been dedicated to improving access,

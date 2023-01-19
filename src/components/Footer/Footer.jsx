@@ -8,7 +8,7 @@ import "./footer.css";
 const Copyright = () => {
   return (
     <footer>
-      <a href="/">Copyright &copy; 2022 Rida Rafi Syed</a> All rights reserved |
+      <a href="/">Copyright &copy; 2022 Dr. Syeda Ali</a>. All rights reserved |<br/>
       this website is made by <a href="https://www.aurteck.com"> @aurteck</a>
     </footer>
   );
@@ -21,14 +21,14 @@ const Footer = () => {
         container
         sx={{ backgroundColor: "#d37aaf", color: "white", padding: 4 }}
       >
-        <Grid item xs={12} md={4}>
-          <Typography variant="h3" component="h4" mt={3}>
+        <Grid item xs={12} md={3}>
+          <Typography variant="h4" component="h4" mt={3}>
             Dr. Syeda Ali
           </Typography>
-          <Typography variant="h5" component="h6" mt={3}>
+          <Typography variant="h6" component="h6" mt={3}>
             The Best Gynaecologist in Multan
           </Typography>
-          <Typography variant="p" component="p" mt={3}>
+          <Typography variant="h7" component="h7" mt={3}>
             Social Media Links
           </Typography>
           <Box sx={{ "& > :not(style)": { m: 1 } }}>
@@ -50,7 +50,7 @@ const Footer = () => {
             </Fab>
           </Box>
         </Grid>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={3}>
           <Typography>IMPORTANT LINKS</Typography>
           <ul className="footer-links">
             <li>
@@ -73,23 +73,54 @@ const Footer = () => {
             </li>
           </ul>
         </Grid>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={3}>
+          <Typography>EXTERNAL LINKS</Typography>
+          <ul className="footer-links">
+            <li>
+              <a href="#header">Home</a>
+            </li>
+            <li>
+              <a href="#about">About</a>
+            </li>
+            <li>
+              <a href="#services">Services</a>
+            </li>
+            <li>
+              <a href="#portfolio">Portfolio</a>
+            </li>
+            <li>
+              <a href="#testomonial">Testomonial</a>
+            </li>
+            <li>
+              <a href="#contact">Contact Us</a>
+            </li>
+          </ul>
+        </Grid>
+        <Grid item xs={12} md={3}>
           <Typography>FIND ME</Typography>
 
           <Typography component="p" mt={2} mb={3}>
-            <i className="fas fa-at"></i> contactme@drsyeadaali.com
+            <i className="fas fa-at"></i> contact@drsyeadaali.com
           </Typography>
           <Typography component="p" mb={3}>
             <i className="fas fa-phone-alt"></i>
             <NumberFormat
-              value="3239876543"
+              value="3216354705"
+              format=" +92 (###) ###-####"
+              displayType={"text"}
+            />
+          </Typography>
+          <Typography component="p" mb={3}>
+            <i className="fas fa-phone-alt"></i>
+            <NumberFormat
+              value="3216354705"
               format=" +92 (###) ###-####"
               displayType={"text"}
             />
           </Typography>
 
           <Typography component="p" mb={5}>
-            <i className="fas fa-map-marker-alt"></i>Obstetrics & Gynaecology
+            <i className="fas fa-map-marker-alt"></i> Obstetrics & Gynaecology
             Department, Ward 17, <br />
             Nishtar Hospital, Multan, <br />
             Punjab, Pakistan
