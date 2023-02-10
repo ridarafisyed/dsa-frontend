@@ -3,12 +3,16 @@
 import React, { Fragment } from "react";
 import { Typography, Grid, Box, Fab } from "@mui/material";
 import NumberFormat from "react-number-format";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import PhoneIcon from "@mui/icons-material/Phone";
+import FmdGoodIcon from "@mui/icons-material/FmdGood";
 import "./footer.css";
 
 const Copyright = () => {
   return (
     <footer>
-      <a href="/">Copyright &copy; 2022 Dr. Syeda Ali</a>. All rights reserved |<br/>
+      <a href="/">Copyright &copy; 2021 Dr. Syeda Ali</a>. All rights reserved |
+      <br />
       this website is made by <a href="https://www.aurteck.com"> @aurteck</a>
     </footer>
   );
@@ -19,8 +23,7 @@ const Footer = () => {
     <Fragment>
       <Grid
         container
-        sx={{ backgroundColor: "#d37aaf", color: "white", padding: 4 }}
-      >
+        sx={{ backgroundColor: "#d37aaf", color: "white", padding: 4 }}>
         <Grid item xs={12} md={3}>
           <Typography variant="h4" component="h4" mt={3}>
             Dr. Syeda Ali
@@ -33,20 +36,20 @@ const Footer = () => {
           </Typography>
           <Box sx={{ "& > :not(style)": { m: 1 } }}>
             <Fab size="small" aria-label="add" mx={1}>
-              <i className="fab fa-facebook-f"></i>
+              <i className="fa fa-facebook"></i>
             </Fab>
 
             <Fab size="small" aria-label="add" mx={1}>
-              <i className="fab fa-instagram"></i>
+              <i className="fa fa-instagram"></i>
             </Fab>
             <Fab size="small" aria-label="add" mx={1}>
-              <i className="fab fa-whatsapp"></i>
+              <i className="fa fa-whatsapp"></i>
             </Fab>
             <Fab size="small" aria-label="add" mx={1}>
-              <i className="fab fa-linkedin-in"></i>
+              <i className="fa fa-linkedin"></i>
             </Fab>
             <Fab size="small" aria-label="add" mx={1}>
-              <i className="fab fa-youtube"></i>
+              <i className="fa fa-youtube"></i>
             </Fab>
           </Box>
         </Grid>
@@ -100,27 +103,26 @@ const Footer = () => {
           <Typography>FIND ME</Typography>
 
           <Typography component="p" mt={2} mb={3}>
-            <i className="fas fa-at"></i> contact@drsyeadaali.com
+            <i className="	fa fa-at"></i> contact@drsyeadaali.com
           </Typography>
           <Typography component="p" mb={3}>
-            <i className="fas fa-phone-alt"></i>
+            <i className="fa fa-phone	"></i>
             <NumberFormat
-              value="3216354705"
+              value="3116267258"
               format=" +92 (###) ###-####"
               displayType={"text"}
             />
           </Typography>
           <Typography component="p" mb={3}>
-            <i className="fas fa-phone-alt"></i>
+            <i className="fa fa-phone	"></i>
             <NumberFormat
-              value="3216354705"
+              value="3188989284"
               format=" +92 (###) ###-####"
               displayType={"text"}
             />
           </Typography>
-
           <Typography component="p" mb={5}>
-            <i className="fas fa-map-marker-alt"></i> Obstetrics & Gynaecology
+            <i className="fa fa-map-marker"></i> Obstetrics & Gynaecology
             Department, Ward 17, <br />
             Nishtar Hospital, Multan, <br />
             Punjab, Pakistan
