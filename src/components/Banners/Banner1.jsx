@@ -15,9 +15,12 @@ const Banner1 = () => {
             flexDirection: "column",
             alignItems: "center",
             alignContent: "center",
-          }}
-        >
-          <Typography component="p" variant="h4" py={8} px={20}>
+          }}>
+          <Typography
+            component="p"
+            variant="h4"
+            py={{md:8, sm: 4, xs: 1 }}
+            px={{ md:20, sm: 10, xs: 1 }}>
             <Typography component="span" variant="h4" color="primary" m={3}>
               <i class="fa fa-quote-left"></i>
             </Typography>
