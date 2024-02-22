@@ -108,7 +108,7 @@ const Footer = () => {
           <Typography component="p" mb={3}>
             <i className="fa fa-phone	"></i>
             <NumberFormat
-              value="3116267258"
+              value="3137010913"
               format=" +92 (###) ###-####"
               displayType={"text"}
             />
